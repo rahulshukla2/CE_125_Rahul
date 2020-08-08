@@ -1,0 +1,27 @@
+1] Command to create a strong named assembly
+
+	csc /t:library /keyfile:mykey.snk calc.cs
+
+2] Deploy to GAC
+	
+	gacutil -i calc.dll
+
+3] Steps to create new version of dll and deploy to GAC
+
+	[i] 	Create a new folder.
+	[ii] 	Place calc.cs file into that folder along with mykey.snk file.
+	[iii] 	Modify calc.cs file and include System.Reflection namespace and include the
+		following line before namespace declaratoin.
+
+			[assemby: AssemblyVersion=("1.0.0.0")]
+
+	[iv] 	Compile with keyfile 
+		
+			csc /t:library /keyfile:mykey.snk calc.cs
+
+	[v] 	Deploy new version to GAC
+			gacutil -i calc.dll
+
+	[vi] 	Create a config file which will tell drive prgram to use new version 
+		instead of older version
+	[vii] 	Place this file into the directory where driver program lies.
