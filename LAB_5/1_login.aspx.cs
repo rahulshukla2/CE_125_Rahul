@@ -73,22 +73,6 @@ namespace WebApplication2
                 }
 
 
-
-                /*if (t_cookie.Text.Equals("Save as temporary cookies"))
-                {
-                    cookie["fullname"]=fullname.Text;
-                    cookie["age"]=age.Text;
-                    cookie["gender"]=gender.Text;
-                    cookie["mobileno"]=mobileno.Text;
-                    cookie["hobbies"]=check.ToString();
-                    cookie["state"]=State.Text;
-                    cookie["city"]=City.Text;
-
-                    Response.Cookies.Add(cookie);
-                }*/
-
-                //if (t_cookie.Text.Equals("Save as Permanant Cookies"))
-                //{
                 cookie["fullname"] = fullname.Text;
                 cookie["age"] = age.Text;
                 cookie["gender"] = gender.Text;
@@ -100,7 +84,7 @@ namespace WebApplication2
 
                 cookie.Expires = System.DateTime.Now.AddMinutes(2);
                 Response.Cookies.Add(cookie);
-                //}
+                
 
                 Response.Redirect("Home.aspx");
             
