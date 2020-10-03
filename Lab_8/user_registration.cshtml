@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "user_registration";
+}
+
+<h1>user_registration</h1>
+
+<form action="/home/user_registration/" method="post">
+    <label>Enter firstname:</label>
+    <input type="text" name="fname" required />
+    <br /><br />
+    <label>Enter lastname:</label>
+    <input type="text" name="lname" required />
+    <br /><br />
+    <label>Enter contact no:</label>
+    <input type="text" name="con" required />
+    <br /><br />
+    <label>Enter Email Id:</label>
+    <input type="email" name="email" required />
+    <br /><br />
+    <label>Enter City:</label>
+    <input type="text" name="city" required />
+    <br /><br />
+    <label>Enter State:</label>
+    <input type="text" name="state" required />
+    <br /><br />
+    <label>Enter Date of Birth:</label>
+    <input type="date" name="bday" required />
+    <br /><br />
+    <input type="submit" value="Submit" />
+
+</form>
+<br/>
+<br/>
+
+<tabel border="1">
+
+    <tr>
+        First Name:
+        <td>@ViewBag.fname</td>
+    </tr>
+    <br />
+    <tr>
+        Last Name:
+        <td>@ViewBag.lname</td>
+    </tr>
+    <br />
+    <tr>
+        Contact no:
+        <td>@ViewBag.con</td>
+    </tr>
+    <br />
+    <tr>
+        <td>
+            Email id:@ViewBag.email
+        </td>
+    </tr>
+    <br />
+    <tr>
+
+        City:
+    <tr>
+        @ViewBag.city
+    </tr>
+    <br />
+
+    <tr>
+        state:
+    <td>@ViewBag.state<br /></td>
+</tr>
+</tabel>
