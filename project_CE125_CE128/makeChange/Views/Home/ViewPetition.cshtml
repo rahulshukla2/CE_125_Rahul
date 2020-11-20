@@ -1,0 +1,70 @@
+﻿
+
+
+
+@model makeChange.ViewModels.HomeViewPetitionViewModel
+@inject AppDbContext context
+@{
+    ViewBag.Title = "Petition";
+    var photoPath = "~/images/" + (Model.Petition.PhotoPath ?? "5.jpg");
+}
+    <h1 class="display-4 text-center">ViewPetition</h1>
+<br />
+<hr />
+
+    <h3 class="display-4 text-center">Supporters  :   @Model.Count</h3>
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Petition.Heading</h1>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top" src="@photoPath" asp-append-version="true" />
+
+                <h4 class="display-5">@Model.Petition.Description</h4>
+
+            </div>
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="index" class="btn btn-success">Back</a>
+
+
+                @if (Model.IsOwner && Model.IsSigned)
+                {
+                    <a asp-controller="home" asp-action="edit"
+                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-success">Edit</a>
+                    <a asp-controller="home" asp-action="delete"
+                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-danger">Delete</a>
+                }
+                else if (Model.IsOwner && !Model.IsSigned)
+                { <a asp-controller="home" asp-action="edit"
+                     asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-success">Edit</a>
+                    <a asp-controller="home" asp-action="delete"
+                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-danger">Delete</a>
+                    <br />
+                    <a asp-controller="home" asp-action="SignThePetition"
+                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-warning">Sign this Petiton</a>
+                }
+                else if (!Model.IsOwner && !Model.IsSigned)
+                {
+                    <a asp-controller="home" asp-action="SignThePetition"
+                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-warning">Sign this Petiton</a>
+                }
+                else
+                {
+                    <a asp-controller="home" asp-action=""
+                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-dark" disabled>Signed</a>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/TestScript.js"></script>
+}
+

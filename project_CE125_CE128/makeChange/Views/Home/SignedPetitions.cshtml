@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Petition>
+
+@{
+    ViewBag.Title = "Signed Petition List";
+}
+
+<h1 class="display-4 text-center">Signed petitions</h1>
+<br />
+<hr />
+
+<div class="card-deck">
+    @foreach (var petition in Model)
+    {
+        var photoPath = "~/images/" + (petition.PhotoPath ?? "5.jpg");
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+            <div class="card-header">
+                <h3>@petition.Heading</h3>
+            </div>
+            <img class="card-img-top imageThumbnail" src="@photoPath"
+                 asp-append-version="true" />
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="viewpetition"
+                   asp-route-PetitionId="@petition.PetitionId" class="btn btn-primary m-1">View</a>
+
+            </div>
+        </div>
+    }
+</div>
