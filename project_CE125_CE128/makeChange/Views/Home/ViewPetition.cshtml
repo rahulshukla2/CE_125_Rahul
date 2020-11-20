@@ -29,34 +29,15 @@
                 <a asp-controller="home" asp-action="index" class="btn btn-success">Back</a>
 
 
-                @if (Model.IsOwner && Model.IsSigned)
-                {
+               
                     <a asp-controller="home" asp-action="edit"
                        asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-success">Edit</a>
                     <a asp-controller="home" asp-action="delete"
                        asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-danger">Delete</a>
-                }
-                else if (Model.IsOwner && !Model.IsSigned)
-                { <a asp-controller="home" asp-action="edit"
-                     asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-success">Edit</a>
-                    <a asp-controller="home" asp-action="delete"
-                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-danger">Delete</a>
+                    <br />
                     <br />
                     <a asp-controller="home" asp-action="SignThePetition"
                        asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-warning">Sign this Petiton</a>
-                }
-                else if (!Model.IsOwner && !Model.IsSigned)
-                {
-                    <a asp-controller="home" asp-action="SignThePetition"
-                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-warning">Sign this Petiton</a>
-                }
-                else
-                {
-                    <a asp-controller="home" asp-action=""
-                       asp-route-PetitionId="@Model.Petition.PetitionId" class="btn btn-dark" disabled>Signed</a>
-                }
-
-
 
             </div>
         </div>

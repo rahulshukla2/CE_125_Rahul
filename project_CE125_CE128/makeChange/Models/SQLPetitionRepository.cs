@@ -61,21 +61,21 @@ namespace makeChange.Models
         public bool IsOwner(ApplicationUser user)
         {
 
-            var a = context.Petitions.Where(x => x.ApplicationUserId.Equals(user.Id));
+            var a = context.Petitions.Where(x => x.ApplicationUserId.Equals(user.Id)).AsQueryable();
 
-            if (a == null)
-                return false;
-            else
+            if (a==null)
                 return true;
+            else
+                return false;
         }
 
         public bool IsSigned(ApplicationUser user)
         {
-            var a = context.ApplicationUserPetitions.Where(x => x.ApplicationUserId.Equals(user.Id));
-            if (a == null)
-                return false;
-            else
+           var a = context.ApplicationUserPetitions.Where(x => x.ApplicationUserId.Equals(user.Id)).AsQueryable();
+            if (a==null)
                 return true;
+            else
+                return false;
 
         }
         IEnumerable<Petition> IPetitionRepository.GetMyPetitions(ApplicationUser User)
@@ -95,11 +95,11 @@ namespace makeChange.Models
             var user = context.Users.Single(x => x.UserName == UserName);
             var id = user.Id;
             var list= (IList<ApplicationUserPetition>)context.ApplicationUserPetitions.Where(x => x.ApplicationUserId.Equals(id)).ToList();
-            //(x => x.ApplicationUserId == id);iwjj
+            
             List<Petition> list1 = new List<Petition>();
             foreach(var app in list)
             {
-                //Petition pet = (Petition)context.Petitions.Where(x => x.PetitionId == app.PetitionId);
+                
                 Petition pet = context.Petitions.Find(app.PetitionId);
                 list1.Add(pet);
             }

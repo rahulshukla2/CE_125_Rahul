@@ -17,46 +17,6 @@ namespace makeChange.ViewModels
 
         public bool IsSigned { get; set; }
 
-        /*private readonly AppDbContext context;
-
         
-        [ActivatorUtilitiesConstructor]
-        public HomeViewPetitionViewModel()
-        {
-
-        }*/
-       /* public HomeViewPetitionViewModel(AppDbContext context)
-        {
-            
-            this.context = context;
-        }*/
-
-        /*public bool IsOwner(ApplicationUser User,int PetitionId)
-        {
-            String UserName = User.UserName;
-
-            var user = context.Users.Single(x => x.UserName == UserName);
-            var id = user.Id;
-           Petition p1 = (Petition)context.Petitions.Where(x => x.PetitionId == PetitionId);
-            if (p1.ApplicationUserId.Equals(id))
-                return true;
-            else
-                return false;
-        }
-
-        public bool IsSigned(ApplicationUser User,int PetitionId,)
-        {
-            String UserName = User.UserName;
-
-            var user = context.Users.Single(x => x.UserName == UserName);
-            var id = user.Id;
-
-            ApplicationUserPetition app =(ApplicationUserPetition) context.ApplicationUserPetitions.Where(x => x.PetitionId.Equals(PetitionId));
-
-            if (app.ApplicationUserId.Equals(id))
-                return true;
-            else
-                return false;
-        }*/
     }
 }
