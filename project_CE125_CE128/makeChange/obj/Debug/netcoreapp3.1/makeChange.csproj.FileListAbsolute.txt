@@ -164,3 +164,5 @@ C:\Users\Rahul Shukla\source\repos\CoreApplication1\makeChange\obj\Debug\netcore
 C:\Users\Rahul Shukla\source\repos\CoreApplication1\makeChange\obj\Debug\netcoreapp3.1\makeChange.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Rahul Shukla\source\repos\CoreApplication1\makeChange\obj\Debug\netcoreapp3.1\Razor\Views\Home\Mypetition.cshtml.g.cs
 C:\Users\Rahul Shukla\source\repos\CoreApplication1\makeChange\obj\Debug\netcoreapp3.1\Razor\Views\Home\SignedPetitions.cshtml.g.cs
+C:\Users\Admin\Documents\GitHub\CE_125_Rahul\project_CE125_CE128\makeChange\obj\Debug\netcoreapp3.1\makeChange.dll
+C:\Users\Admin\Documents\GitHub\CE_125_Rahul\project_CE125_CE128\makeChange\obj\Debug\netcoreapp3.1\makeChange.pdb
